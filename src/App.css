@@ -1,0 +1,82 @@
+.App {
+    width: 100vw;
+    height: 100vh;
+}
+.chart {
+    height: 100%;
+    height: -webkit-calc(100% - 117px);
+    height: -moz-calc(100% - 117px);
+    height: calc(100% - 117px);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.chart-container {
+    width: 80%;
+    height: 100vh;
+}
+.chart-wrap {
+    height: 100%;
+}
+.sidebar-container {
+    width: 20%;
+    border-left: rgb(179, 179, 179) solid 1px;
+    height: 100vh;
+    overflow-y: scroll;
+}
+.sidebar {
+    padding-top: 64px;
+}
+.sidebar ul {
+    padding: 0;
+}
+.main {
+    display: flex;
+}
+.navBar {
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+}
+.active {
+    background-color: #e0e0e0;
+}
+
+.dataBar {
+    padding-top: 64px;  
+    margin: 0;  
+    overflow-x: scroll;
+}
+.dataHead {
+    border-bottom: rgb(179, 179, 179) solid 1px;
+}
+.dataTable {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+}
+.dataTable th {
+    text-align: left;
+    padding: 5px;
+}
+.dataTable td {
+    padding: 5px;
+}
+.drawer__tab__name {
+    text-align: left;
+    width: 60%;
+    font-size: 15px
+}
+.drawer__tab__pc24 {
+    text-align: right;
+    width: 40%;
+    font-size: 14px    
+}
+.pos {
+    color:#093;
+}
+.neg {
+    color:#d14836;
+}
