@@ -22,6 +22,16 @@ function loadData(n) {
                 let total_supply = numeral(element.total_supply).format('0,0');
                 $("#total_supply").html(total_supply);
 
+                let available_supply = numeral(element.available_supply).format('0,0');
+                $("#available_supply").html(available_supply);
+
+                if(element.max_supply === null){
+                    $("#max_supply").html("none");
+                }else{
+                    let max_supply = numeral(element.max_supply).format('0,0');
+                    $("#max_supply").html(max_supply);
+                }
+                
                 let v24 = numeral(element["24h_volume_usd"]).format('$0,0[.]00');
                 $("#24h_volume_usd").html(v24);
 
@@ -49,10 +59,11 @@ function loadData(n) {
         });
     });
 }
-export class DataBar extends Component {
+export class Stats extends Component {
 
     componentDidMount() {
         var n = this.props.name
+        window.clearInterval(cryptoInterval);        
         loadData(n)
         cryptoInterval = setInterval(() => {
             loadData(n)
@@ -78,11 +89,7 @@ export class DataBar extends Component {
                             <th>Symbol</th>
                             <th>Market Cap</th>
                             <th>price</th>
-                            <th>Circulating Supply</th>
                             <th>Volume(24H)</th>
-                            <th>% 1h</th>
-                            <th>% 24h</th>
-                            <th>% 7d</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -91,8 +98,26 @@ export class DataBar extends Component {
                             <td id="symbol"></td>
                             <td id="market_cap_usd"></td>
                             <td id="price_usd"></td>
-                            <td id="total_supply"></td>
                             <td id="24h_volume_usd"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table className="dataTable">
+                    <thead>
+                        <tr className="dataHead">
+                            <th>Total Supply</th>
+                            <th>Available Supply</th>
+                            <th>Max Supply</th>
+                            <th>% 1h</th>
+                            <th>% 24h</th>
+                            <th>% 7d</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="total_supply"></td>
+                            <td id="available_supply"></td>
+                            <td id="max_supply"></td>
                             <td id="percent_change_1h"></td>
                             <td id="percent_change_24h"></td>
                             <td id="percent_change_7d"></td>

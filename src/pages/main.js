@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Graph, NavBar, Drawer} from '../components';
+import {Menu, Content, NavBar, Drawer} from '../components';
 
 export class Main extends Component {
 
@@ -12,23 +12,36 @@ export class Main extends Component {
         id: "crypto",
         exchange: "bitfinex",
         time: "1H",
-        book: "btcusd"
+        book: "btcusd",
+        tab: "graph"
       }
     }
     this.handleState = this
       .handleState
+      .bind(this)
+
+    this.handleMenu = this
+      .handleMenu
       .bind(this)
   }
 
   handleState(n, b) {
     let current = this.state.current;
     current.name = n;
-    current.book = b.toLowerCase()+"usd";
+    current.book = b.toLowerCase() + "usd";
+    this.setState({current: current});
+  }
+
+  handleMenu(tab) {
+    let current = this.state.current;
+    current.tab = tab;
     this.setState({current: current});
   }
 
   render() {
     var handleState = this.handleState;
+    var handleMenu = this.handleMenu;
+    var currentTab = this.state.current.tab;
 
     return (
       <div className="App">
@@ -36,13 +49,12 @@ export class Main extends Component {
           <NavBar/>
         </div>
         <div className="main">
-          <div className="chart-container">
-            <Graph current={this.state.current}/>
+          <div className="content-container">
+            <Menu handleMenu={handleMenu} currentTab = {currentTab}/>
+            <Content current={this.state.current}/>
           </div>
-          <div className="sidebar-container">
-            <Drawer
-              currentBook={this.state.current.book}
-              handleState={handleState}/>
+          <div className="sidebar-container shadow">
+            <Drawer currentBook={this.state.current.book} handleState={handleState}/>
           </div>
         </div>
       </div>
