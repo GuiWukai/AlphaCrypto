@@ -43,13 +43,14 @@
 }
 .navBar header {
     box-shadow: 0px 0px 5px #e8e8e8;
+    background-color: #2852a0;
 }
 .active {
     background-color: #e0e0e0;
 }
 
 .dataBar {
-    padding: 10px;  
+    padding: 20px;  
     overflow-x: scroll;
 }
 .dataHead {
@@ -62,10 +63,10 @@
 }
 .dataTable th {
     text-align: left;
-    padding: 10px 5px 10px 5px;
+    padding: 10px 0px;
 }
 .dataTable td {
-    padding: 10px 5px 10px 5px;
+    padding: 10px 0px;
 }
 .drawer__tab__name {
     text-align: left;
@@ -103,9 +104,21 @@
     border: none;
 }
 .tab--current {
-    background-color: #3e51b5;
+    background-color: #2852a0;
     color: white;
 }
 .hr {
     background-color: #f1f1f1;
+}
+.team {
+    padding: 20px;
+}
+.vc {
+    padding: 20px;
+}
+.member {
+    padding-bottom: 10px;
+}
+.description {
+    padding: 20px;
 }

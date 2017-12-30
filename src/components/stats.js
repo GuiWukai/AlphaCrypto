@@ -82,6 +82,7 @@ export class Stats extends Component {
     render() {
         return (
             <div className="dataBar">
+                <h3>{this.props.name} / Stats</h3>
                 <table className="dataTable">
                     <thead>
                         <tr className="dataHead">
