@@ -16,7 +16,7 @@ export class Team extends Component {
                 <hr/>
             </div>)
         }else{
-            content = "no info"
+            content = "no data"
         }
         
         return (
