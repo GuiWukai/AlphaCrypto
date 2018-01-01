@@ -25,6 +25,7 @@ export class Team extends Component {
                 <div className="team-description">
                     {content}
                 </div>
+                
             </div>
         );
     }
